@@ -96,23 +96,23 @@
       {{range $index, $data:= .project}}
       <div class="blog-list-item">
           <div class="blog-list-item-image">
-              <img src="" alt="Foto Bahasan"/>
+              <img src="public/Gambar/conten1.png" alt="Foto Bahasan"/>
           </div>
           <div class="blog-list-item-content">
               <div class="blog-list-item-content-button">
-                  <a class="btn-edit">Edit Project</a>
-                  <form action="/project-delete/{{$index}}" method="POST" style="margin-left: 10px;">
+                  <a class="btn-edit" href="/project-edit/{{$data.ID}}">Edit Project</a>
+                  <form action="/project-delete/{{$data.ID}}" method="POST" style="margin-left: 10px;">
                     <input type="submit" class="btn-delete pointer mt-2" value="Delete Post"/>
                   </form>
 
               </div>
 
               <h1>
-                  <a href="myproject/{{$index}}"  target="blank">
+                  <a href="myproject/{{$data.ID}}"  target="blank">
                     {{$data.Title}}
                   </a>
               </h1>
-              <div class="blog-list-item-content-detail">Project Date : {{$data.StartDate}} - {{$data.EndDate}}</div>
+              <div class="blog-list-item-content-detail">Project Date : {{$data.StartDateFormator}} - {{$data.EndDateFormator}}</div>
               <div class="blog-list-item-content-detail">Project Type :{{$data.Technologies}} </div>
 
               <p class="text-wrap text-break">
